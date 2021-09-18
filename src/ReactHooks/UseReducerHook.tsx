@@ -1,6 +1,6 @@
 import React, {useReducer} from 'react';
 
-const UseReduxHook = () => {
+const UseReducerHook = () => {
 
     const countReducer = (state: number, action: { type: string }) => {
         switch (action.type) {
@@ -27,4 +27,4 @@ const UseReduxHook = () => {
     );
 };
 
-export default UseReduxHook;
+export default UseReducerHook;
