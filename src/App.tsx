@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Page from "./Pages/Page";
+import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
+import Layout from "./Pages/Layout";
+import ReactHooks from "./Pages/ReactHooks";
+import Home from './Pages/Home'
+import Header from "./Pages/Header";
+import CustomHooks from "./Pages/CustomHooks";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <main>
+                <Router>
+                    <Header />
+                    <Layout>
+                        <div>
+                            <Switch>
+                                <Route path="/custom-hooks">
+                                    <CustomHooks/>
+                                </Route>
+                                <Route path="/react-hooks">
+                                    <ReactHooks/>
+                                </Route>
+                                <Route path="/page">
+                                    <Page/>
+                                </Route>
+                                <Route path="/">
+                                    <Home/>
+                                </Route>
+                            </Switch>
+                        </div>
+                    </Layout>
+                </Router>
+            </main>
+        </div>
+    );
 }
 
 export default App;
