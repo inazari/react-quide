@@ -7,6 +7,7 @@ import ReactHooks from "./Pages/ReactHooks";
 import Home from './Pages/Home'
 import Header from "./Pages/Header";
 import CustomHooks from "./Pages/CustomHooks";
+import ReactWindowPage from "./Pages/ReactWindowPage";
 
 function App() {
     return (
@@ -25,6 +26,9 @@ function App() {
                                 </Route>
                                 <Route path="/page">
                                     <Page/>
+                                </Route>
+                                <Route path="/react-window">
+                                    <ReactWindowPage />
                                 </Route>
                                 <Route path="/">
                                     <Home/>

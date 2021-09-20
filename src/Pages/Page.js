@@ -1,20 +1,13 @@
 import React from 'react'
 import useInput from "../customHooks/useInput";
-import useFetchAPI from "../customHooks/useFetchAPI"
 import Checkbox from "../components/Checkbox";
+import Fetch from "../components/Fetch";
 
-const Page = () => {
-    const [titleProps, resetTitle] = useInput()
-    const {data, loading, error} = useFetchAPI('https://jsonplaceholder.typicode.com/users')
-    if (loading) {
-        return <h2>Data is loading....</h2>
-    }
-    if (error) {
-        return <h2>Ops. Some error</h2>
-    }
+const PageForm = ({data, titleProps, resetTitle}) => {
+
     return <form onSubmit={(e) => {
         e.preventDefault();
-        console.log(titleProps.value);
+        console.log(titleProps?.value);
         resetTitle('');
     }}>
         <label htmlFor="input1">Custom useInput &nbsp;</label>
@@ -23,8 +16,15 @@ const Page = () => {
             {data && data?.map(user => <li key={user.id}>{user.name}</li>)}
         </ul>
 
-        <Checkbox id="checkbox" label='label text here' />
+        <Checkbox id="checkbox" label='label text here'/>
     </form>
+}
+
+const Page = () => {
+    const [titleProps, resetTitle] = useInput()
+
+    return <Fetch url={'https://jsonplaceholder.typicode.com/users'}
+                  renderSuccess={({data}) => <PageForm data={data} titleProps={titleProps} resetTitle={resetTitle}/>}/>
 }
 
 

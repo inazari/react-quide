@@ -14,6 +14,9 @@ const Header = () => {
         <nav>
             <ul style={{display: 'flex', listStyleType: 'none', justifyContent: 'space-around'}}>
                 <li>
+                    <Link to="/react-window">{location.pathname === '/react-window' ? <b>React Window</b> : 'React Window'}</Link>
+                </li>
+                <li>
                     <Link to="/react-hooks">{location.pathname === '/react-hooks' ? <b>React Hooks</b> : 'react hooks'}</Link>
                 </li>
                 <li>
