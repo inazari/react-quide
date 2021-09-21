@@ -26,6 +26,9 @@ const Header = () => {
                     <Link to="/page">{location.pathname === '/page' ? <b>Page with components</b> : 'Page with components'}</Link>
                 </li>
                 <li>
+                    <Link to="/promise">{location.pathname === '/promise' ? <b>Promise</b> : 'Promise'}</Link>
+                </li>
+                <li>
                     <Link to="/">{location.pathname === '/' ? <b>Home</b> : 'home'}</Link>
                 </li>
             </ul>
