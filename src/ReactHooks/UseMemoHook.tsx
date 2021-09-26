@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, { useMemo, useState } from "react";
 import Counter from "../components/Counter";
 import useToggle from "../customHooks/useToggle";
 
@@ -6,33 +6,38 @@ import useToggle from "../customHooks/useToggle";
 // useCallback is for function
 
 const UseMemoHook = () => {
-    const [count, setCount] = useState(1)
-    const [toggle, setToggle] = useToggle(false)
+  const [count, setCount] = useState(1);
+  const [toggle, setToggle] = useToggle(false);
 
-    const handleToggle = () => {
-        console.log('handleToggle fn');
-        setToggle(!toggle)
-    }
+  const handleToggle = () => {
+    console.log("handleToggle fn");
+    setToggle(!toggle);
+  };
 
-    const getRandomValue = useMemo(()=>{
-        for (let i = 0; i < 2000000000; i++) {
-        }
-        return 'slow function count value is ' + count;
-    }, [count])
+  const getRandomValue = useMemo(() => {
+    for (let i = 0; i < 2000000000; i++) {}
+    return "slow function count value is " + count;
+  }, [count]);
 
-    return (
+  return (
+    <div>
+      {getRandomValue}
+      {
         <div>
-            {getRandomValue}
-            {<div>
-                <button onClick={() => setCount(prevState => prevState - 1)}>-</button>
-                <span style={{margin: '0 10px'}}>{count}</span>
-                <button onClick={() => setCount(prevState => prevState + 1)}>+</button>
-            </div>}
-            <Counter key={toggle ? 1 : 2} />
-            {/* @ts-ignore */}
-            <button onClick={handleToggle}>toggle value {toggle.toString()}</button>
+          <button onClick={() => setCount((prevState) => prevState - 1)}>
+            -
+          </button>
+          <span style={{ margin: "0 10px" }}>{count}</span>
+          <button onClick={() => setCount((prevState) => prevState + 1)}>
+            +
+          </button>
         </div>
-    );
+      }
+      <Counter key={toggle ? 1 : 2} />
+      {/* @ts-ignore */}
+      <button onClick={handleToggle}>toggle value {toggle.toString()}</button>
+    </div>
+  );
 };
 
 export default UseMemoHook;

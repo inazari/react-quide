@@ -1,20 +1,26 @@
-import React, {useReducer} from 'react';
+import React, { useReducer } from "react";
 
 interface ICheckboxProps {
-    id?: string
-    label?: string
+  // eslint-disable-next-line react/require-default-props
+  id?: string;
+  label?: string;
 }
 
 const Checkbox = (props: ICheckboxProps) => {
-    const [checked, setChecked] = useReducer(check => !check, false)
-    const {label, ...inputProps}  = props
+  const [checked, setChecked] = useReducer((check) => !check, false);
+  const { label, ...inputProps } = props;
 
-    return (
-        <>
-            {label && <label htmlFor="checkbox">{label}</label>}
-            <input {...inputProps} type='checkbox' checked={checked} onChange={setChecked}/>
-        </>
-    );
+  return (
+    <>
+      {label && <label htmlFor="checkbox">{label}</label>}
+      <input
+        {...inputProps}
+        type="checkbox"
+        checked={checked}
+        onChange={setChecked}
+      />
+    </>
+  );
 };
 
 export default Checkbox;

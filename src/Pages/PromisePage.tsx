@@ -22,8 +22,10 @@ const PromisePage = () => {
 
   useEffect(() => {
     console.log("call safe(loadSave) fn");
+
     safe(loadSave);
   }, []);
+
   return <div>promise</div>;
 };
 
