@@ -1,6 +1,5 @@
 import React, { ReactElement } from "react";
 import useFetchAPI from "../customHooks/useFetchApi";
-import useMountedRef from "../customHooks/useMountedRef";
 
 interface IFetchProps {
   url: string;

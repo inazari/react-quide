@@ -7,6 +7,7 @@ import ReactHooks from "./Pages/ReactHooks";
 import Home from "./Pages/Home";
 import Header from "./Pages/Header";
 import CustomHooks from "./Pages/CustomHooks";
+import WebWorkerPage from "./Pages/WebWorkerPage";
 
 const PromisePage = lazy(() => import("./Pages/PromisePage"));
 const ReactWindowPage = lazy(() => import("./Pages/ReactWindowPage"));
@@ -20,6 +21,9 @@ function App() {
           <Layout>
             <div>
               <Switch>
+                <Route path="/web-worker">
+                  <WebWorkerPage />
+                </Route>
                 <Route path="/custom-hooks">
                   <CustomHooks />
                 </Route>

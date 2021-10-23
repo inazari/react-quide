@@ -22,8 +22,8 @@ const PromisePage = () => {
 
   useEffect(() => {
     console.log("call safe(loadSave) fn");
-
     safe(loadSave);
+    //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div>promise</div>;

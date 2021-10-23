@@ -10,6 +10,7 @@ const useTimeout = (callback: () => void, delay: number) => {
 
   const set = useCallback(() => {
     timeoutRef.current = setTimeout(() => callbackRef.current(), delay);
+    //  eslint-disable-next-line react-hooks/exhaustive-deps
   }, [callback]);
 
   const clear = useCallback(() => {

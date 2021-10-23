@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
-  useParams,
-  useRouteMatch,
+  Link,
   useHistory,
   useLocation,
+  useParams,
+  useRouteMatch,
 } from "react-router-dom";
 
 const Header = () => {
@@ -62,6 +62,15 @@ const Header = () => {
         <li>
           <Link to="/promise">
             {location.pathname === "/promise" ? <b>Promise</b> : "Promise"}
+          </Link>
+        </li>
+        <li>
+          <Link to="/web-worker">
+            {location.pathname === "/web-worker" ? (
+              <b>Web Worker</b>
+            ) : (
+              "Web Worker"
+            )}
           </Link>
         </li>
         <li>
